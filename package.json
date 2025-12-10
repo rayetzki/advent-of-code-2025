@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/rayetzki/advent-of-code-2025.git"
   },
-  "keywords": ["advent-of-code-2025", "advent-of-code"],
+  "keywords": [
+    "advent-of-code-2025",
+    "advent-of-code"
+  ],
   "author": "Illia Raietskyi",
   "license": "ISC",
   "type": "module",
