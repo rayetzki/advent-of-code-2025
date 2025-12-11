@@ -1,7 +1,7 @@
 import { REGEX } from '../common.js';
 import { getFileInput } from '../utils.js';
 
-const fileInput = await getFileInput('test.txt');
+const fileInput = await getFileInput('input.txt');
 
 const junctionBoxes = fileInput.split(REGEX.NEWLINE).map(line => line.split(',').map(Number));
 
