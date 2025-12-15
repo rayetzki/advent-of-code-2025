@@ -140,3 +140,4 @@ vite.config.ts.timestamp-*
 
 # Do not commit test files from advent of code site
 **/test.txt
+**/test_*.txt
