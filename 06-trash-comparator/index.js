@@ -1,7 +1,7 @@
 import { REGEX } from '../common.js';
 import { getFileInput } from '../utils.js';
 
-const fileInput = await getFileInput('test.txt');
+const fileInput = await getFileInput('input.txt');
 
 const rows = fileInput
     .split(REGEX.NEWLINE)
@@ -28,6 +28,37 @@ for (let i = 0; i < operators.length; i++) {
 
 console.log('Part 1', part1);
 
-let part2 = 0;
+const reversedRows = fileInput.split(REGEX.NEWLINE).map(line => line.split('').reverse().join(''));
+
+const results = [];
+
+let accumulator = [];
+
+for (let i = 0; i < reversedRows[0].length; i++) {
+    const currentLine = reversedRows.map((row) => row[i]).join('');
+    
+    if (currentLine.trim() === '') {
+        continue;
+    } else if (currentLine.endsWith('+') || currentLine.endsWith('*')) {
+        const operator = currentLine.at(-1);
+       
+        accumulator.push(Number(currentLine.trim().slice(0, -1)));
+
+        const result = accumulator.reduce((acc, num) => {
+            if (operator === '+') {
+                return acc + num;
+            } else if (operator === '*') {
+                return acc * num;
+            }
+        }, operator === '+' ? 0 : 1);
+
+        results.push(result);
+        accumulator = [];
+    } else {
+        accumulator.push(Number(currentLine.trim()));
+    }
+}
+
+const part2 = results.reduce((acc, cur) => acc + cur, 0);
 
 console.log('Part 2', part2);
