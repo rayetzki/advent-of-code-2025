@@ -13,5 +13,6 @@ export const CHARS = {
   COLON: ':',
   NEWLINE: '\n',
   HASH: '#',
-  ARROW: '->'
+  ARROW: '->',
+  CROSS: 'x'
 };
